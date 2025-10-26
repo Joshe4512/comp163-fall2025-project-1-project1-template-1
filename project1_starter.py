@@ -3,19 +3,17 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
 Name: [Joshua Evans]
 Date: [10/20/2025]
 
-AI Usage: [Document any AI assistance used]
-Example: AI helped with file I/O error handling logic in save_character function
-"""
+AI Usage: AI gave an example on how to code the "Earthling" character class, which helped code the rest of the classes.
 
-def create_character(name, character_class): 
+def create_character (name , character_class): #
     if character_class == "Earthling":
-        return{"Physical Damage": 50, "Ki Damage": 50, "Health": 100, "Speed": 100}
+        return{"Physical_Damage": 50, "Ki_Damage": 50, "Health": 100, "Speed": 100}
     elif character_class == "Saiyan":
-        return{"Physical Damage": 75, "Ki Damage": 35, "Health": 80, "Speed": 150 }
+        return{"Physical_Damage": 75, "Ki_Damage": 35, "Health": 80, "Speed": 150 }
     elif character_class == "Namekian":
-        return{"Physical Damage": 65, "Ki Damage": 45, "Health": 120, "Speed": 80}
+        return{"Physical_Damage": 65, "Ki_Damage": 45, "Health": 120, "Speed": 80}
     elif character_class == "Frieza":
-        return{"Physical Damage": 45, "Ki Damage": 55, "Health": 70, "Speed": 200}
+        return{"Physical_Damage": 45, "Ki_Damage": 55, "Health": 70, "Speed": 200}
     else: return{"Pick a race: Earthling, Saiyan, Namekian, Frieza"}
     def create_character(name, character_class):
         stats = calculate_stats(charcacter_class)
@@ -23,10 +21,11 @@ def create_character(name, character_class):
         "name": name,
         "class": character_class,
         "level": 1,
-        "strength": stats["strength"],
-        "magic": stats["magic"],
-        "health": stats["health"],
-        "gold": 100
+        "Physical_Damage": stats[Physical_Damage"],
+        "Ki_Damage": stats["Ki_Damage"],
+        "Health": stats["Health"],
+        "Speed": stats["speed"],
+        "zeni": 100
     }
     return character
     """
@@ -41,7 +40,36 @@ def create_character(name, character_class):
     # Remember to use calculate_stats() function for stat calculation
     pass
 
-def calculate_stats(character_class, level):
+def calculate_stats(character_class, level): #Calculates stats based on level and class and returns a tuple of all stats 
+    if character_class == "Earthling": 
+    Physical_Damage = 50 + (level * 3)
+    Ki_Damage = 50 + (level * 3)
+    Health = 100 + (level * 3)
+    Speed = 100 + (level * 3)
+    
+    elif character_class == "Saiyan":
+    Physical_Damage = 75 + (level * 4)
+    Ki_Damage = 35 + (level * 2)
+    Health = 80 + (level * 2)
+    Speed = 150 + (level * 3)
+
+    elif character_class == "Namekian":
+    Physical_Damage = 65 + (level * 2)
+    Ki_Damage = 45 + (level * 2)
+    Health = 125 + (level * 4)
+    Speed = 80 + (level * 2)
+
+    elif character_class == "Freiza":
+    Physical_Damage = 45 + (level * 2)
+    Ki_Damage = 55 + (level * 2)
+    Health = 70 + (level * 2)
+    Speed = 100 + (level * 4)
+    
+    else:print("please choose a class: Earthling, Saiyan, Namekian, or Frieza")
+
+    return (Physical_Damage, Ki_Damage, Health, Speed)
+    
+    
     """
     Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
