@@ -1,13 +1,34 @@
 """
 COMP 163 - Project 1: Character Creator & Saving/Loading
-Name: [Your Name Here]
-Date: [Date]
+Name: [Joshua Evans]
+Date: [10/20/2025]
 
 AI Usage: [Document any AI assistance used]
 Example: AI helped with file I/O error handling logic in save_character function
 """
 
-def create_character(name, character_class):
+def create_character(name, character_class): 
+    if character_class == "Earthling":
+        return{"Physical Damage": 50, "Ki Damage": 50, "Health": 100, "Speed": 100}
+    elif character_class == "Saiyan":
+        return{"Physical Damage": 75, "Ki Damage": 35, "Health": 80, "Speed": 150 }
+    elif character_class == "Namekian":
+        return{"Physical Damage": 65, "Ki Damage": 45, "Health": 120, "Speed": 80}
+    elif character_class == "Frieza":
+        return{"Physical Damage": 45, "Ki Damage": 55, "Health": 70, "Speed": 200}
+    else: return{"Pick a race: Earthling, Saiyan, Namekian, Frieza"}
+    def create_character(name, character_class):
+        stats = calculate_stats(charcacter_class)
+        character = {
+        "name": name,
+        "class": character_class,
+        "level": 1,
+        "strength": stats["strength"],
+        "magic": stats["magic"],
+        "health": stats["health"],
+        "gold": 100
+    }
+    return character
     """
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
